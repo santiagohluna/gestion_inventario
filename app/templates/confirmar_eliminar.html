@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.adecoagro.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Eliminar Activo</title>
+</head>
+<header>
+    <div class="logo">
+        <a href="http://www.adecoagro.com/es" target="_blank" rel="noopener noreferrer"><img src="../static/adeco_logo.svg" alt="Logo de Adecoagro"></a>
+    </div>
+</header>
+<body>
+
+    <div class="cinta">
+        <h1>Eliminar activo</h1>
+    </div>
+
+    <section class="inventario">
+        
+        <h2>Detalle del activo a eliminar:</h2>
+        <table style="width:100%">
+            <tr>
+                <td><strong>Nombre:</strong></td>
+                <td>{{ activo.nombre }}</td>
+            </tr>
+            <tr>
+                <td><strong>Categoría:</strong></td>
+                <td>{{ activo.categoria }}</td>
+            </tr>
+            <tr>
+                <td><strong>Estado:</strong></td>
+                <td>{{ activo.estado }}</td>
+            </tr>
+            <tr>
+                <td><strong>Fecha de Adquisición:</strong></td>
+                <td>{{ activo.fecha_adquisicion }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <div class="nav">
+        <form method="POST" action="{{ url_for('eliminar', id=activo.id) }}">
+            <button type="submit" class="button button1">Eliminar</button>
+        </form>
+        <a href="{{ url_for('inventario') }}" class="button button1">Volver a la lista</a>
+    </div>
+</body>
+</html>

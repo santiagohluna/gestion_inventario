@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.adecoagro.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Editar Activo</title>
+</head>
+<header>
+    <div class="logo">
+        <a href="http://www.adecoagro.com/es" target="_blank" rel="noopener noreferrer"><img src="../static/adeco_logo.svg" alt="Logo de Adecoagro"></a>
+    </div>
+</header>
+<body>
+    <div class="cinta">
+        <h1>Editar Activo</h1>
+    </div>
+
+    <div class="nav1">
+        <a href="{{ url_for('inventario') }}" class="button button1">Volver a la lista</a>
+    </div>
+
+    <div class="inventario">
+        <form method="POST">
+            <div class="row">
+                <div class="col-25">
+                    <label>Nombre:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="nombre" value="{{ activo.nombre }}" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label>Categoría:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="categoria" value="{{ activo.categoria }}" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label>Estado:</label>
+                </div>
+                <div class="col-75">
+                    <select name="estado">
+                        <option value="Disponible" {% if activo.estado == "Disponible" %}selected{% endif %}>Disponible</option>
+                        <option value="En Mantenimiento" {% if activo.estado == "En Mantenimiento" %}selected{% endif %}>En Mantenimiento</option>
+                        <option value="Dado de Baja" {% if activo.estado == "Dado de Baja" %}selected{% endif %}>Dado de Baja</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label>Fecha de Adquisición:</label>
+                </div>
+                <div class="col-75">
+                    <input type="date" name="fecha_adquisicion" value="{{ activo.fecha_adquisicion }}" required>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Guardar cambios">
+            </div>
+    </div>
+
+</body>
+</html>

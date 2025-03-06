@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.adecoagro.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Adecoagro - Mantenimiento</title>
+</head>
+<header>
+    <div class="logo">
+        <a href="http://www.adecoagro.com/es" target="_blank" rel="noopener noreferrer"><img src="../static/adeco_logo.svg" alt="Logo de Adecoagro"></a>
+    </div>
+    <div class="login" style="display: flex; justify-content: end;">
+        <a href="{{ url_for('inventario') }}" class="button button1"><b>Login</b></a>
+    </div>
+</header>
+<body>
+    <div class="banner">
+        <h1>Área de Mantenimiento</h1>
+        <h2>Gestión de Activos y Equipos</h2>
+    </div>
+
+    <section class="menuppal">
+        <div class="card">
+            <img src="../static/inventario.png" alt="Avatar" style="width:100%">
+            <div class="container">
+                <a href="{{ url_for('inventario') }}" class="button button1"><b>Gestión de Activos</b></a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="../static/gestion-de-equipos.png" alt="Avatar" style="width:100%">
+            <div class="container">
+                <a href="{{ url_for('inventario') }}" class="button button1"><b>Gestión de Equipos</b></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/operando.png" alt="Avatar" style="width:100%">
+            <div class="container">
+                <a href="{{ url_for('inventario') }}" class="button button1"><b>Gestión de Operaciones</b></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

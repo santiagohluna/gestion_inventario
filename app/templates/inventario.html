@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.adecoagro.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Gestión de Activos</title>
+</head>
+<header>
+    <div class="logo">
+        <a href="http://www.adecoagro.com/es" target="_blank" rel="noopener noreferrer"><img src="../static/adeco_logo.svg" alt="Logo de Adecoagro"></a>
+    </div>
+</header>
+<body>
+    <div class="cinta">
+        <h1>Gestión de Inventarios</h1>
+    </div>
+    <div class="nav">
+        <a href="{{ url_for('agregar') }}" class="button button1">Agregar Activo</a>
+        <a href="{{ url_for('index') }}" class="button button1">Volver al menú principal</a>
+    </div>
+    <section class="inventario">
+
+        <table style="width:100%">
+            <tr style="background-color: #E5E5E5;">
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Estado</th>
+                <th>Fecha de adquisición</th>
+                <th>Acciones</th>
+            </tr>
+            {% for activo in activos %}
+            <tr>
+                <td>{{ activo.nombre }}</td>
+                <td>{{ activo.categoria }}</td>
+                <td>{{ activo.estado }}</td>
+                <td>{{ activo.fecha_adquisicion }}</td>
+                <td id="acciones">
+                    <a href="{{ url_for('detalle', id=activo.id) }}" class="button button1">Ver Detalle</a>
+                    <a href="{{ url_for('editar', id=activo.id) }}" class="button button1">Editar</a>
+                    <a href="{{ url_for('confirmar_eliminar', id=activo.id) }}" class="button button1">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</body>
+</html>
