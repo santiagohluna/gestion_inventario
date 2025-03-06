@@ -19,10 +19,53 @@
     <div class="cinta">
         <h1>Gestión de Inventarios</h1>
     </div>
+
     <div class="nav">
         <a href="{{ url_for('agregar') }}" class="button button1">Agregar Activo</a>
         <a href="{{ url_for('index') }}" class="button button1">Volver al menú principal</a>
     </div>
+
+    <div class="cinta">
+        <form method="GET" action="{{ url_for('inventario') }}">
+            <button type="submit" name="categoria" value="" class="button button1">Mostrar todas</button>
+        </form>
+        <div id="filtro">
+            <h2>o filtrar por:</h2>
+        </div>
+        <div class="card2">
+            <div class="card-img">
+                <img src="../static/maquinaria.png" alt="Avatar" style="width:100%">
+            </div>
+            <div class="container">
+                <form method="GET" action="{{ url_for('inventario') }}">
+                    <button type="submit" name="categoria" value="Maquinaria" class="button button1">Maquinaria</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card2">
+            <div class="card-img">
+                <img src="../static/herramientas.png" alt="Avatar" style="width:100%">
+            </div>
+            <div class="container">
+                <form method="GET" action="{{ url_for('inventario') }}">
+                    <button type="submit" name="categoria" value="Herramientas" class="button button1">Herramientas</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card2">
+            <div class="card-img">
+                <img src="../static/repuestos.png" alt="Avatar" style="width:100%">
+            </div>
+            <div class="container">
+                <form method="GET" action="{{ url_for('inventario') }}">
+                    <button type="submit" name="categoria" value="Repuestos" class="button button1">Repuestos</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <section class="inventario">
 
         <table style="width:100%">

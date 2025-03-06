@@ -11,8 +11,20 @@ def index():
 
 @app.route("/inventario")
 def inventario():
-    activos = Activo.query.all()
-    return render_template("inventario.html", activos=activos)
+    categoria_filtro = request.args.get("categoria", "")
+    categorias = ["Maquinaria", "Herramientas", "Repuestos"]
+
+    if categoria_filtro and categoria_filtro in categorias:
+        activos = Activo.query.filter_by(categoria=categoria_filtro).all()
+    else:
+        activos = Activo.query.all()
+
+    return render_template(
+        "inventario.html",
+        activos=activos,
+        categorias=categorias,
+        categoria_filtro=categoria_filtro,
+    )
 
 
 @app.route("/agregar", methods=["GET", "POST"])
