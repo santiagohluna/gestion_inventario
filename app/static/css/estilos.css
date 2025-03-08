@@ -26,19 +26,30 @@ header {
     width: 25%;
 }
 
-.banner {
-    color: white;
-    border: 0;
-    display: flex;
-    margin: 0;
-    width: 100%;
-    height: 400px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: url("../adecoagro2020.jpg") fixed no-repeat;
-    background-size: 100%;
-    background-position: center bottom;
+.background {
+  background: url("../tambos.png") fixed no-repeat;
+  background-size: 100%;
+  background-position: center bottom;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#titulo{
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
+  margin: 0;
 }
 
 .menuppal{
